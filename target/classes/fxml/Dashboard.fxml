@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.orwel.controller.DashboardController" stylesheets="@styles.css">
+   <top>
+      <VBox>
+         <!-- Navigation Bar -->
+         <HBox styleClass="nav-bar-dark" style="-fx-padding: 20;" alignment="CENTER_LEFT" spacing="25">
+            <Label text="ORWEL" style="-fx-text-fill: #00F2FF; -fx-font-size: 32px; -fx-font-weight: bold; -fx-letter-spacing: 3px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Dashboard" styleClass="nav-button-dark active" onAction="#navigateToDashboard"/>
+            <Button text="Countries" styleClass="nav-button-dark" onAction="#navigateToCountries"/>
+            <Button text="News" styleClass="nav-button-dark" onAction="#navigateToNews"/>
+            <Button text="Profile" styleClass="nav-button-dark" onAction="#navigateToProfile"/>
+            <Button text="About" styleClass="nav-button-dark" onAction="#navigateToAbout"/>
+            <Button text="Logout" styleClass="neon-button-secondary" style="-fx-background-color: rgba(255, 107, 107, 0.1); -fx-text-fill: #FF6B6B; -fx-border-color: rgba(255, 107, 107, 0.3);" onAction="#handleLogout"/>
+         </HBox>
+      </VBox>
+   </top>
+   
+   <center>
+      <ScrollPane fitToWidth="true" styleClass="scroll-pane" style="-fx-background-color: #05070A;">
+         <VBox fx:id="dashboardContent" spacing="25" styleClass="background-dark">
+            <padding>
+               <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+            
+            <!-- Welcome Section -->
+            <VBox fx:id="welcomeCard" spacing="15" styleClass="glass-card" style="-fx-padding: 35;">
+               <Label fx:id="welcomeLabel" text="Welcome!" styleClass="title-medium" style="-fx-font-size: 40px; background: linear-gradient(135deg, #00F2FF 0%, #7000FF 100%); -fx-background-clip: text; -fx-text-fill: transparent;"/>
+               <Label text="Track government policies and stay informed about countries worldwide" styleClass="body-text" style="-fx-font-size: 16px;"/>
+            </VBox>
+            
+            <!-- Quick Stats -->
+            <HBox spacing="25">
+               <VBox fx:id="countriesCard" styleClass="stat-card-neon" style="-fx-pref-width: 250;" alignment="CENTER">
+                  <Label fx:id="countriesCountLabel" text="0" styleClass="stat-number"/>
+                  <Label text="Countries" styleClass="stat-label"/>
+               </VBox>
+               
+               <VBox fx:id="warningsCard" styleClass="stat-card-neon" style="-fx-pref-width: 250;" alignment="CENTER">
+                  <Label fx:id="warningsCountLabel" text="0" styleClass="stat-number"/>
+                  <Label text="Warnings" styleClass="stat-label"/>
+               </VBox>
+               
+               <VBox fx:id="newsCard" styleClass="stat-card-neon" style="-fx-pref-width: 250;" alignment="CENTER">
+                  <Label fx:id="newsCountLabel" text="0" styleClass="stat-number"/>
+                  <Label text="News Today" styleClass="stat-label"/>
+               </VBox>
+            </HBox>
+            
+            <!-- Recent Warnings -->
+            <VBox fx:id="warningsCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
+               <HBox alignment="CENTER_LEFT">
+                  <Label text="⚠️ Recent Warnings" styleClass="label-neon-title"/>
+                  <Region HBox.hgrow="ALWAYS"/>
+                  <Button text="View All →" styleClass="neon-button-secondary" style="-fx-font-size: 12px;" onAction="#viewAllWarnings"/>
+               </HBox>
+               <ListView fx:id="warningsListView" prefHeight="200" styleClass="list-view-dark"/>
+            </VBox>
+            
+            <!-- Top Countries -->
+            <VBox fx:id="countriesCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
+               <HBox alignment="CENTER_LEFT">
+                  <Label text="🌍 Countries" styleClass="label-neon-title"/>
+                  <Region HBox.hgrow="ALWAYS"/>
+                  <Button text="View All →" styleClass="neon-button-secondary" style="-fx-font-size: 12px;" onAction="#navigateToCountries"/>
+               </HBox>
+               <ListView fx:id="countriesListView" prefHeight="300" styleClass="list-view-dark"/>
+            </VBox>
+            
+            <!-- Latest News -->
+            <VBox fx:id="newsCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
+               <HBox alignment="CENTER_LEFT">
+                  <Label text="📰 Latest News" styleClass="label-neon-title"/>
+                  <Region HBox.hgrow="ALWAYS"/>
+                  <Button text="View All →" styleClass="neon-button-secondary" style="-fx-font-size: 12px;" onAction="#navigateToNews"/>
+               </HBox>
+               <ListView fx:id="newsListView" prefHeight="300" styleClass="list-view-dark"/>
+            </VBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+</BorderPane>

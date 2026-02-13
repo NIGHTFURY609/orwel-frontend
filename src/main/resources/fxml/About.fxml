@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.orwel.controller.AboutController">
+   <top>
+      <HBox style="-fx-background-color: #2c3e50; -fx-padding: 15;" alignment="CENTER_LEFT" spacing="20">
+         <Label text="Orwel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+         <Region HBox.hgrow="ALWAYS"/>
+         <Button text="Dashboard" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToDashboard"/>
+         <Button text="Countries" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToCountries"/>
+         <Button text="News" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToNews"/>
+         <Button text="Profile" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToProfile"/>
+         <Button text="About" style="-fx-background-color: #34495e; -fx-text-fill: white;"/>
+         <Button text="Logout" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" onAction="#handleLogout"/>
+      </HBox>
+   </top>
+   
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: #ecf0f1;">
+         <VBox spacing="20" style="-fx-background-color: #ecf0f1;">
+            <padding>
+               <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+            
+            <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 40; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" maxWidth="800">
+               <Label text="About Orwel" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+               
+               <Text style="-fx-font-size: 16px; -fx-line-spacing: 5;">
+                  <content>
+                     Orwel is a comprehensive government policy tracking application designed to help users understand 
+                     the stances, policies, and regulations of countries worldwide. Whether you're planning to travel, 
+                     invest in stocks, manage taxes, or simply stay informed about global politics, Orwel provides 
+                     personalized insights and warnings based on your profile.
+                  </content>
+               </Text>
+               
+               <Separator/>
+               
+               <Label text="Features" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+               
+               <VBox spacing="10">
+                  <HBox spacing="10">
+                     <Label text="•" style="-fx-font-size: 16px;"/>
+                     <Text style="-fx-font-size: 14px;">
+                        <content>
+                           <b>Country Policy Tracking:</b> View comprehensive information about each country's policies, 
+                           stances on various topics, and what international agreements they abide by or don't follow.
+                        </content>
+                     </Text>
+                  </HBox>
+                  
+                  <HBox spacing="10">
+                     <Label text="•" style="-fx-font-size: 16px;"/>
+                     <Text style="-fx-font-size: 14px;">
+                        <content>
+                           <b>Personalized Warnings:</b> Receive alerts about potential issues based on your profile, 
+                           such as stock trading restrictions, travel requirements, tax implications, and more.
+                        </content>
+                     </Text>
+                  </HBox>
+                  
+                  <HBox spacing="10">
+                     <Label text="•" style="-fx-font-size: 16px;"/>
+                     <Text style="-fx-font-size: 14px;">
+                        <content>
+                           <b>Personalized News:</b> Get news articles tailored to your interests, location, and profile 
+                           to help you make informed decisions about stocks, taxes, travel, and life choices.
+                        </content>
+                     </Text>
+                  </HBox>
+                  
+                  <HBox spacing="10">
+                     <Label text="•" style="-fx-font-size: 16px;"/>
+                     <Text style="-fx-font-size: 14px;">
+                        <content>
+                           <b>General News:</b> Stay updated with news from around the world, filtered by region, 
+                           country, or specific topics.
+                        </content>
+                     </Text>
+                  </HBox>
+                  
+                  <HBox spacing="10">
+                     <Label text="•" style="-fx-font-size: 16px;"/>
+                     <Text style="-fx-font-size: 14px;">
+                        <content>
+                           <b>Location-Based Services:</b> Automatic location detection and geocoding to provide 
+                           location-relevant news and information.
+                        </content>
+                     </Text>
+                  </HBox>
+               </VBox>
+               
+               <Separator/>
+               
+               <Label text="Technology Stack" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+               
+               <Text style="-fx-font-size: 14px;">
+                  <content>
+                     <b>Frontend:</b> JavaFX<br/>
+                     <b>Backend:</b> REST API<br/>
+                     <b>Location Services:</b> Google Maps API / OpenStreetMap Nominatim<br/>
+                     <b>Build Tool:</b> Maven
+                  </content>
+               </Text>
+               
+               <Separator/>
+               
+               <Label text="Version" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+               <Text style="-fx-font-size: 14px;">
+                  <content>
+                     Version 1.0.0<br/>
+                     Built for MIT Hackathon 2026
+                  </content>
+               </Text>
+            </VBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+</BorderPane>
