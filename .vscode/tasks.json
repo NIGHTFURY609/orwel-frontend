@@ -1,0 +1,163 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Application",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"javafx:run"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Orwel Application",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"javafx:run"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Updated Orwel",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"javafx:run"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Updated Orwel App",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"javafx:run"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Orwel - Fixed UI",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"javafx:run"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Application",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Start App Fresh",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Orwel App - No Errors",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Run Orwel - Final",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Run Orwel - Fixed Navigation",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Run Orwel - All Fixed",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Run Orwel - Complete",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Run Final",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Test Navigation",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Test App Final",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Launch App",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Test Orwel App",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Run App - Test Nav",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Final Test",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "App Launch",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Test Updated App",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Test Fixed Pages",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		},
+		{
+			"label": "Test All Fixes",
+			"type": "shell",
+			"command": "mvn javafx:run",
+			"isBackground": true
+		}
+	]
+}

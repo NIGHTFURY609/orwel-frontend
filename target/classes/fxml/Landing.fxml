@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.orwel.controller.LandingController" stylesheets="/styles.css">
+   <top>
+      <!-- Navigation Bar -->
+      <HBox style="-fx-padding: 20; -fx-spacing: 30; -fx-background-color: #0F141C; -fx-border-color: #2A3445; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+         <Label text="Orwel" style="-fx-text-fill: #00D4FF; -fx-font-size: 28px; -fx-font-weight: bold; -fx-letter-spacing: 3px;"/>
+         <Region HBox.hgrow="ALWAYS"/>
+         <Button fx:id="loginNavButton" text="Login" style="-fx-background-color: transparent; -fx-text-fill: #B8C1CC; -fx-font-weight: 600; -fx-font-size: 14px; -fx-padding: 10 25; -fx-cursor: hand; -fx-underline: false;" onAction="#handleLoginNav"/>
+         <Button fx:id="signupNavButton" text="Sign Up" styleClass="neon-button" style="-fx-font-size: 14px; -fx-padding: 10 25;" onAction="#handleSignupNav"/>
+      </HBox>
+   </top>
+
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: #F5F7FA; -fx-padding: 0;">
+         <VBox spacing="0" style="-fx-background-color: #F5F7FA;">
+            
+            <!-- Hero Section -->
+            <VBox fx:id="heroSection" spacing="40" style="-fx-background-color: #FFFFFF; -fx-padding: 80 50;" alignment="CENTER">
+               <StackPane style="-fx-min-height: 350; -fx-background-color: #FFFFFF;">
+                  <!-- Background gradient effect -->
+                  <VBox style="-fx-background-color: #FFFFFF;">
+                     <Region VBox.vgrow="ALWAYS"/>
+                  </VBox>
+                  
+                  <!-- Hero Content -->
+                  <VBox fx:id="heroContent" spacing="30" alignment="CENTER">
+                     <VBox spacing="15" alignment="CENTER">
+                        <Text fx:id="heroTitle" style="-fx-font-size: 64px; -fx-font-weight: bold; -fx-text-fill: #001F4D; -fx-letter-spacing: 2px;" text="Investor Insight Platform"/>
+                        <Text fx:id="heroSubtitle" style="-fx-font-size: 32px; -fx-font-weight: 600; -fx-text-fill: #2C3E50; -fx-text-alignment: center;" text="Market Intelligence &amp; Trading Signals"/>
+                        <Text fx:id="heroTagline" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-text-alignment: center; -fx-wrap-text: true;" text="Decode the markets. Understand the moves. Stay ahead."/>
+                     </VBox>
+                     
+                     <!-- CTA Buttons -->
+                     <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+                        <Button fx:id="getStartedButton" text="Get Started" styleClass="neon-button" style="-fx-font-size: 14px; -fx-padding: 12 40; -fx-min-width: 150;" onAction="#handleGetStarted"/>
+                        <Button fx:id="learnMoreButton" text="Learn More" styleClass="neon-button-secondary" style="-fx-font-size: 14px; -fx-padding: 12 40; -fx-min-width: 150;" onAction="#handleLearnMore"/>
+                     </HBox>
+                  </VBox>
+               </StackPane>
+            </VBox>
+            
+            <!-- Features Section -->
+            <VBox fx:id="featuresSection" spacing="40" style="-fx-background-color: #FFFFFF; -fx-padding: 60 50;" alignment="TOP_CENTER">
+               <VBox spacing="15" alignment="CENTER">
+                  <Text style="-fx-font-size: 42px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Why Orwel?"/>
+                  <Text style="-fx-font-size: 15px; -fx-text-fill: #666;" text="Professional market coverage and actionable trading insights"/>
+               </VBox>
+               
+               <!-- Feature Cards -->
+               <HBox spacing="20" style="-fx-padding: 20 0;" alignment="TOP_CENTER">
+                  <!-- Feature 1 -->
+                  <VBox fx:id="feature1Card" style="-fx-background-color: #E3F2FD; -fx-border-color: #B3E5FC; -fx-border-width: 1px; -fx-background-radius: 16px; -fx-border-radius: 16px; -fx-min-width: 280; -fx-spacing: 12; -fx-alignment: TOP_CENTER; -fx-padding: 30; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                     <Text style="-fx-font-size: 28px; -fx-text-fill: #1976D2;" text="🌍"/>
+                     <Text style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Global Markets"/>
+                     <Text style="-fx-font-size: 12px; -fx-text-fill: #555; -fx-text-alignment: center; -fx-wrap-text: true;" text="Track global markets and major equities in real-time."/>
+                  </VBox>
+                  
+                  <!-- Feature 2 -->
+                  <VBox fx:id="feature2Card" style="-fx-background-color: #E3F2FD; -fx-border-color: #B3E5FC; -fx-border-width: 1px; -fx-background-radius: 16px; -fx-border-radius: 16px; -fx-min-width: 280; -fx-spacing: 12; -fx-alignment: TOP_CENTER; -fx-padding: 30; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                     <Text style="-fx-font-size: 28px; -fx-text-fill: #1976D2;" text="⚡"/>
+                     <Text style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Trading Alerts"/>
+                     <Text style="-fx-font-size: 12px; -fx-text-fill: #555; -fx-text-alignment: center; -fx-wrap-text: true;" text="Receive personalized trade alerts and risk signals tailored to your watchlist."/>
+                  </VBox>
+                  
+                  <!-- Feature 3 -->
+                  <VBox fx:id="feature3Card" style="-fx-background-color: #E3F2FD; -fx-border-color: #B3E5FC; -fx-border-width: 1px; -fx-background-radius: 16px; -fx-border-radius: 16px; -fx-min-width: 280; -fx-spacing: 12; -fx-alignment: TOP_CENTER; -fx-padding: 30; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                     <Text style="-fx-font-size: 28px; -fx-text-fill: #1976D2;" text="📰"/>
+                     <Text style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Market Insights"/>
+                     <Text style="-fx-font-size: 12px; -fx-text-fill: #555; -fx-text-alignment: center; -fx-wrap-text: true;" text="Curated market news and analysis aligned to your portfolio."/>
+                  </VBox>
+               </HBox>
+            </VBox>
+            
+            <!-- Benefits Section -->
+            <VBox fx:id="benefitsSection" spacing="40" style="-fx-background-color: #F5F7FA; -fx-padding: 60 50;" alignment="TOP_CENTER">
+               <VBox spacing="12" alignment="CENTER">
+                  <Text style="-fx-font-size: 42px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Key Features"/>
+                  <Text style="-fx-font-size: 15px; -fx-text-fill: #666;" text="Everything investors and traders need to make smarter decisions"/>
+               </VBox>
+               
+               <!-- Benefits Grid -->
+               <HBox spacing="40" style="-fx-padding: 20 0;">
+                  <VBox spacing="15">
+                     <HBox spacing="10">
+                        <Text style="-fx-font-size: 20px; -fx-text-fill: #1976D2;" text="✓"/>
+                        <VBox spacing="3">
+                           <Text style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Real-time Market Updates"/>
+                           <Text style="-fx-font-size: 12px; -fx-text-fill: #666;" text="Get instant notifications about price moves and corporate events"/>
+                        </VBox>
+                     </HBox>
+                     <HBox spacing="10">
+                        <Text style="-fx-font-size: 20px; -fx-text-fill: #1976D2;" text="✓"/>
+                        <VBox spacing="3">
+                           <Text style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Personalized Dashboard"/>
+                           <Text style="-fx-font-size: 12px; -fx-text-fill: #666;" text="Customize watchlists, alerts and market views"/>
+                        </VBox>
+                     </HBox>
+                  </VBox>
+                  
+                  <Region HBox.hgrow="ALWAYS"/>
+                  
+                  <VBox spacing="15">
+                     <HBox spacing="10">
+                        <Text style="-fx-font-size: 20px; -fx-text-fill: #1976D2;" text="✓"/>
+                        <VBox spacing="3">
+                           <Text style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Risk Assessment"/>
+                           <Text style="-fx-font-size: 12px; -fx-text-fill: #666;" text="Analyze risk index and exposure across holdings"/>
+                        </VBox>
+                     </HBox>
+                     <HBox spacing="10">
+                        <Text style="-fx-font-size: 20px; -fx-text-fill: #1976D2;" text="✓"/>
+                        <VBox spacing="3">
+                           <Text style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #001F4D;" text="Global Market Insights"/>
+                           <Text style="-fx-font-size: 12px; -fx-text-fill: #666;" text="Compare stocks and strategies across markets"/>
+                        </VBox>
+                     </HBox>
+                  </VBox>
+               </HBox>
+            </VBox>
+            
+            <!-- CTA Section -->
+            <VBox fx:id="ctaSection" spacing="25" style="-fx-background-color: #FFFFFF; -fx-padding: 60 50;" alignment="CENTER">
+               <VBox spacing="5" alignment="CENTER">
+                  <Text style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-text-alignment: center;" text="Get Insights with"/>
+                  <Text style="-fx-font-size: 52px; -fx-font-weight: bold; -fx-text-fill: #001F4D; -fx-text-alignment: center; -fx-letter-spacing: 3px;" text="Orwel"/>
+               </VBox>
+               <Text style="-fx-font-size: 15px; -fx-text-fill: #666; -fx-text-alignment: center;" text="Join thousands of users who stay informed about global markets and make smarter investment decisions"/>
+               <Button text="Get Started Now" styleClass="neon-button" style="-fx-font-size: 15px; -fx-padding: 12 50; -fx-min-width: 200;" onAction="#handleGetStarted"/>
+            </VBox>
+            
+            <!-- Footer -->
+            <HBox style="-fx-background-color: #F5F7FA; -fx-padding: 20 50; -fx-spacing: 20;" alignment="CENTER">
+               <Label text="© 2026 Orwel. All rights reserved." style="-fx-text-fill: #999; -fx-font-size: 11px;"/>
+               <Region HBox.hgrow="ALWAYS"/>
+               <Hyperlink text="Privacy Policy" style="-fx-text-fill: #1976D2; -fx-font-size: 11px;"/>
+               <Hyperlink text="Terms of Service" style="-fx-text-fill: #1976D2; -fx-font-size: 11px;"/>
+               <Hyperlink text="Contact" style="-fx-text-fill: #1976D2; -fx-font-size: 11px;"/>
+            </HBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+</BorderPane>

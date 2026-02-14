@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.orwel.controller.ProfileController">
+   <top>
+      <HBox style="-fx-background-color: #2c3e50; -fx-padding: 15;" alignment="CENTER_LEFT" spacing="20">
+         <Label text="Orwel" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+         <Region HBox.hgrow="ALWAYS"/>
+         <Button text="Dashboard" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToDashboard"/>
+         <Button text="Companies" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToCountries"/>
+         <Button text="Market News" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToNews"/>
+         <Button text="Investor Profile" style="-fx-background-color: #34495e; -fx-text-fill: white;"/>
+         <Button text="About" style="-fx-background-color: transparent; -fx-text-fill: white;" onAction="#navigateToAbout"/>
+         <Button text="Logout" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" onAction="#handleLogout"/>
+      </HBox>
+   </top>
+
+   <center>
+      <ScrollPane fitToWidth="true">
+         <VBox spacing="15" style="-fx-padding: 40;">
+            <Label fx:id="errorLabel" style="-fx-text-fill: red; -fx-font-size: 12px;"/>
+            <Label fx:id="successLabel" style="-fx-text-fill: green; -fx-font-size: 12px;"/>
+            
+            <Label text="Investor Profile" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+            
+            <Label text="Personal Information" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <HBox spacing="10">
+               <TextField fx:id="firstNameField" promptText="First Name" HBox.hgrow="ALWAYS"/>
+               <TextField fx:id="lastNameField" promptText="Last Name" HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <TextField fx:id="emailField" promptText="Email Address"/>
+            <TextField fx:id="phoneNumberField" promptText="Phone Number"/>
+            <TextField fx:id="addressField" promptText="Address"/>
+            <HBox spacing="10">
+               <TextField fx:id="cityField" promptText="City" HBox.hgrow="ALWAYS"/>
+               <TextField fx:id="postalCodeField" promptText="Postal Code" HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <ComboBox fx:id="countryComboBox" promptText="Select Country"/>
+            <TextField fx:id="occupationField" promptText="Occupation"/>
+            <DatePicker fx:id="dateOfBirthPicker" promptText="Date of Birth"/>
+            <ComboBox fx:id="marriageStatusComboBox" promptText="Marriage Status"/>
+            
+            <CheckBox fx:id="hasStocksCheckbox" text="I own stocks"/>
+            <CheckBox fx:id="plansToTravelCheckbox" text="I plan to travel"/>
+            <Label text="Interests:" style="-fx-font-weight: bold;"/>
+            <CheckBox fx:id="interestPolitics" text="Politics"/>
+            <CheckBox fx:id="interestTax" text="Tax"/>
+            <CheckBox fx:id="interestTravel" text="Travel"/>
+            <CheckBox fx:id="interestStocks" text="Stocks"/>
+            <CheckBox fx:id="interestImmigration" text="Immigration"/>
+            <CheckBox fx:id="interestTrade" text="Trade"/>
+            
+            <Separator/>
+            
+            <Label text="Investment Experience" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <ComboBox fx:id="investmentExperienceComboBox" promptText="Investment Experience"/>
+            <ComboBox fx:id="riskToleranceComboBox" promptText="Risk Tolerance"/>
+            <ComboBox fx:id="tradingStyleComboBox" promptText="Trading Style"/>
+            <ComboBox fx:id="portfolioSizeComboBox" promptText="Portfolio Size"/>
+            <ComboBox fx:id="tradingFrequencyComboBox" promptText="Trading Frequency"/>
+            <ComboBox fx:id="timeHorizonComboBox" promptText="Time Horizon"/>
+            <ComboBox fx:id="liquidAssetsComboBox" promptText="Liquid Assets"/>
+            <ComboBox fx:id="taxStrategyComboBox" promptText="Tax Strategy"/>
+            <ComboBox fx:id="sourceComboBox" promptText="Investment Source"/>
+            
+            <Separator/>
+            
+            <Label text="Investment Securities" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <CheckBox fx:id="secEquities" text="Equities and Stocks"/>
+            <CheckBox fx:id="secOptions" text="Options Trading"/>
+            <CheckBox fx:id="secBonds" text="Bonds and Fixed Income"/>
+            <CheckBox fx:id="secCommodities" text="Commodities"/>
+            <CheckBox fx:id="secCrypto" text="Cryptocurrencies"/>
+            <CheckBox fx:id="secMutualFunds" text="Mutual Funds"/>
+            
+            <Separator/>
+            
+            <Label text="Investment Goals" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <CheckBox fx:id="goalCapitalGrowth" text="Capital Growth"/>
+            <CheckBox fx:id="goalIncomeGeneration" text="Income Generation"/>
+            <CheckBox fx:id="goalWealth" text="Wealth Building"/>
+            <CheckBox fx:id="goalRetirement" text="Retirement Planning"/>
+            <CheckBox fx:id="goalShortTerm" text="Short-term Goals"/>
+            
+            <Separator/>
+            
+            <Label text="Analysis Methods" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <CheckBox fx:id="analysisFundamental" text="Fundamental Analysis"/>
+            <CheckBox fx:id="analysisTechnical" text="Technical Analysis"/>
+            <CheckBox fx:id="analysisQuantitative" text="Quantitative Analysis"/>
+            <CheckBox fx:id="analysisNews" text="News-based Analysis"/>
+            
+            <Separator/>
+            
+            <Label text="Dividend Strategy" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <CheckBox fx:id="dividendFocus" text="Focus on Dividends"/>
+            <CheckBox fx:id="dividendReinvest" text="Reinvest Dividends"/>
+            <CheckBox fx:id="dividendIgnore" text="Ignore Dividends"/>
+            
+            <Separator/>
+            
+            <Label text="Risk Management" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <CheckBox fx:id="riskStopLoss" text="Use Stop Loss"/>
+            <CheckBox fx:id="riskHedging" text="Use Hedging"/>
+            <CheckBox fx:id="riskDiversification" text="Diversification"/>
+            <CheckBox fx:id="riskPortfolioRebalance" text="Portfolio Rebalancing"/>
+            
+            <Separator/>
+            
+            <Label text="International Exposure" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <CheckBox fx:id="intlDeveloped" text="Developed Markets"/>
+            <CheckBox fx:id="intlEmerging" text="Emerging Markets"/>
+            <CheckBox fx:id="intlFrontier" text="Frontier Markets"/>
+            
+            <Separator/>
+            
+            <Label text="Additional Notes" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <TextArea fx:id="investmentNotesArea" promptText="Add any additional investment notes..." wrapText="true" prefHeight="100"/>
+            
+            <HBox spacing="10">
+               <Button fx:id="saveButton" text="Save" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 20;" onAction="#handleSave"/>
+               <Button fx:id="cancelButton" text="Cancel" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 10 20;" onAction="#handleCancel"/>
+            </HBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+</BorderPane>

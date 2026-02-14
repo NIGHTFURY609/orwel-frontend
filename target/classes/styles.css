@@ -1,0 +1,406 @@
+/* Professional Dark Theme with Crimson Accents */
+
+.root {
+    -fx-font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    -fx-background-color: #0F141C;
+}
+
+/* Color Palette */
+.midnight-base {
+    -fx-background-color: #0F141C;
+}
+
+.accent-red {
+    -fx-text-fill: #2E6BFF;
+}
+
+.accent-red-bright {
+    -fx-text-fill: #5A8FFF;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    -fx-background-color: rgba(30, 38, 51, 0.8);
+    -fx-background-radius: 20px;
+    -fx-border-color: #2A3445;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 0);
+    -fx-padding: 0;
+}
+
+.glass-card:hover {
+    -fx-background-color: rgba(42, 51, 66, 0.9);
+    -fx-border-color: #2E6BFF;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.3), 30, 0, 0, 0);
+}
+
+/* Gradient Backgrounds */
+.gradient-bg-primary {
+    -fx-background-color: #2E6BFF;
+}
+
+.gradient-bg-secondary {
+    -fx-background-color: #5A8FFF;
+}
+
+.gradient-bg-dark {
+    -fx-background-color: #0F141C;
+}
+
+/* Typography */
+.title-large {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E5EAF0;
+    -fx-letter-spacing: 2px;
+}
+
+.title-medium {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E5EAF0;
+    -fx-letter-spacing: 1px;
+}
+
+.title-small {
+    -fx-font-size: 24px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #E5EAF0;
+}
+
+.body-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8B98A8;
+    -fx-line-spacing: 1.5;
+}
+
+.label-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6B7280;
+}
+
+/* Neon Buttons */
+.neon-button {
+    -fx-background-color: #2E6BFF;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px 24px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.4), 12, 0, 0, 0);
+}
+
+.neon-button:hover {
+    -fx-background-color: #5A8FFF;
+    -fx-effect: dropshadow(gaussian, rgba(90, 143, 255, 0.6), 15, 0, 0, 0);
+}
+
+.neon-button:pressed {
+    -fx-background-color: #1A4FC0;
+}
+
+.neon-button-secondary {
+    -fx-background-color: rgba(46, 107, 255, 0.1);
+    -fx-text-fill: #2E6BFF;
+    -fx-border-color: rgba(46, 107, 255, 0.3);
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+
+.neon-button-secondary:hover {
+    -fx-background-color: rgba(46, 107, 255, 0.2);
+    -fx-border-color: rgba(46, 107, 255, 0.6);
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.4), 15, 0, 0, 0);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Text Fields with Glass Effect */
+.glass-text-field {
+    -fx-background-color: rgba(30, 38, 51, 0.6);
+    -fx-background-radius: 12px;
+    -fx-border-color: #2A3445;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-text-fill: #E5EAF0;
+    -fx-prompt-text-fill: #6B7280;
+    -fx-padding: 14px 18px;
+    -fx-font-size: 14px;
+}
+
+.glass-text-field:focused {
+    -fx-background-color: rgba(30, 38, 51, 0.8);
+    -fx-border-color: #2E6BFF;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.3), 15, 0, 0, 0);
+}
+
+/* Navigation Bar */
+.nav-bar-dark {
+    -fx-background-color: rgba(15, 20, 28, 0.95);
+    -fx-border-color: #2A3445;
+    -fx-border-width: 0 0 1px 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);
+}
+
+.nav-button-dark {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8B98A8;
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.nav-button-dark:hover {
+    -fx-background-color: rgba(46, 107, 255, 0.1);
+    -fx-text-fill: #2E6BFF;
+}
+
+.nav-button-dark.active {
+    -fx-background-color: rgba(46, 107, 255, 0.15);
+    -fx-text-fill: #2E6BFF;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.3), 10, 0, 0, 0);
+}
+
+/* Stat Cards */
+.stat-card-neon {
+    -fx-background-color: rgba(30, 38, 51, 0.8);
+    -fx-background-radius: 20px;
+    -fx-border-color: #2A3445;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-padding: 30px;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.15), 25, 0, 0, 0);
+}
+
+.stat-card-neon:hover {
+    -fx-background-color: rgba(42, 51, 66, 0.9);
+    -fx-border-color: #2E6BFF;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.5), 35, 0, 0, 0);
+}
+
+.stat-number {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2E6BFF;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #8B98A8;
+    -fx-font-weight: 500;
+}
+
+/* List Views */
+.list-view-dark {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15px;
+}
+
+.list-cell-dark {
+    -fx-background-color: transparent;
+    -fx-padding: 15px;
+    -fx-text-fill: #8B98A8;
+}
+
+.list-cell-dark:hover {
+    -fx-background-color: rgba(46, 107, 255, 0.1);
+    -fx-background-radius: 10px;
+}
+
+.list-cell-dark:selected {
+    -fx-background-color: rgba(46, 107, 255, 0.15);
+    -fx-background-radius: 10px;
+}
+
+/* Scroll Bars - Custom Thin Style */
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+    -fx-pref-height: 8px;
+}
+
+.scroll-bar:vertical .track,
+.scroll-bar:horizontal .track {
+    -fx-background-color: rgba(42, 52, 69, 0.5);
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(46, 107, 255, 0.4);
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar:vertical .thumb:hover,
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: rgba(46, 107, 255, 0.6);
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.5), 10, 0, 0, 0);
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+
+/* Labels */
+.label-neon-title {
+    -fx-text-fill: #2E6BFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+
+.label-neon-subtitle {
+    -fx-text-fill: #8B98A8;
+    -fx-font-size: 14px;
+}
+
+.label-neon {
+    -fx-text-fill: #E5EAF0;
+    -fx-font-size: 13px;
+}
+
+/* Separators */
+.separator-neon {
+    -fx-background-color: #2A3445;
+}
+
+/* Hyperlinks */
+.hyperlink-neon {
+    -fx-text-fill: #2E6BFF;
+    -fx-font-weight: 600;
+    -fx-underline: false;
+}
+
+.hyperlink-neon:hover {
+    -fx-text-fill: #5A8FFF;
+    -fx-underline: true;
+}
+
+/* Checkbox */
+.checkbox-neon {
+    -fx-text-fill: #8B98A8;
+}
+
+.checkbox-neon .box {
+    -fx-background-color: rgba(30, 38, 51, 0.6);
+    -fx-border-color: #2A3445;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+}
+
+.checkbox-neon:selected .mark {
+    -fx-background-color: #2E6BFF;
+}
+
+/* Error/Success Messages */
+.error-message-neon {
+    -fx-text-fill: #FF2E2E;
+    -fx-background-color: rgba(46, 107, 255, 0.1);
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-border-color: rgba(46, 107, 255, 0.3);
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.success-message-neon {
+    -fx-text-fill: #00C853;
+    -fx-background-color: rgba(0, 200, 83, 0.1);
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-border-color: rgba(0, 200, 83, 0.3);
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+/* Background Panes */
+.background-dark {
+    -fx-background-color: #0F141C;
+}
+
+.background-gradient {
+    -fx-background-color: #0F141C;
+}
+
+/* ComboBox */
+.combo-box-dark {
+    -fx-background-color: rgba(30, 38, 51, 0.6);
+    -fx-background-radius: 12px;
+    -fx-border-color: #2A3445;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+}
+
+.combo-box-dark .list-cell {
+    -fx-background-color: rgba(15, 20, 28, 0.95);
+    -fx-text-fill: #8B98A8;
+}
+
+.combo-box-dark .list-view {
+    -fx-background-color: rgba(15, 20, 28, 0.95);
+    -fx-border-color: #2A3445;
+    -fx-border-width: 1px;
+}
+
+/* Enhanced Interactive Elements */
+.glass-card-interactive {
+    -fx-background-color: rgba(30, 38, 51, 0.7);
+    -fx-background-radius: 20px;
+    -fx-border-color: #2A3445;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.glass-card-interactive:hover {
+    -fx-background-color: rgba(42, 51, 66, 0.9);
+    -fx-border-color: #2E6BFF;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.4), 35, 0, 0, 5);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Professional Content Boxes */
+.content-box {
+    -fx-background-color: rgba(30, 38, 51, 0.7);
+    -fx-background-radius: 15px;
+    -fx-border-color: #2A3445;
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0, 0, 0);
+}
+
+.content-box:hover {
+    -fx-background-color: rgba(42, 51, 66, 0.8);
+    -fx-border-color: #2E6BFF;
+    -fx-effect: dropshadow(gaussian, rgba(46, 107, 255, 0.2), 20, 0, 0, 0);
+}
+
+/* Compact Card for Lists */
+.compact-card {
+    -fx-background-color: rgba(30, 38, 51, 0.6);
+    -fx-background-radius: 10px;
+    -fx-border-color: #2A3445;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 0);
+}
+
+.compact-card:hover {
+    -fx-background-color: rgba(42, 51, 66, 0.8);
+    -fx-border-color: #2E6BFF;
+}
