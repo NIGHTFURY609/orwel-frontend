@@ -37,51 +37,62 @@
             </VBox>
             
             <!-- Quick Stats -->
-            <HBox spacing="25">
-               <VBox fx:id="countriesCard" styleClass="stat-card-neon" style="-fx-pref-width: 250;" alignment="CENTER">
-                  <Label fx:id="countriesCountLabel" text="0" styleClass="stat-number"/>
-                     <Label text="Companies" styleClass="stat-label"/>
+            <HBox spacing="20">
+               <VBox fx:id="legislationCard" styleClass="stat-card-neon" style="-fx-pref-width: 220;" alignment="CENTER">
+                  <Label fx:id="legislationCountLabel" text="0" styleClass="stat-number"/>
+                     <Label text="Active Bills" styleClass="stat-label"/>
                </VBox>
                
-               <VBox fx:id="warningsCard" styleClass="stat-card-neon" style="-fx-pref-width: 250;" alignment="CENTER">
-                  <Label fx:id="warningsCountLabel" text="0" styleClass="stat-number"/>
-                     <Label text="Risk Alerts" styleClass="stat-label"/>
+               <VBox fx:id="hearingsCard" styleClass="stat-card-neon" style="-fx-pref-width: 220;" alignment="CENTER">
+                  <Label fx:id="hearingsCountLabel" text="0" styleClass="stat-number"/>
+                     <Label text="Committee Hearings" styleClass="stat-label"/>
                </VBox>
                
-               <VBox fx:id="newsCard" styleClass="stat-card-neon" style="-fx-pref-width: 250;" alignment="CENTER">
-                  <Label fx:id="newsCountLabel" text="0" styleClass="stat-number"/>
-                     <Label text="Market Updates" styleClass="stat-label"/>
+               <VBox fx:id="nominationsCard" styleClass="stat-card-neon" style="-fx-pref-width: 220;" alignment="CENTER">
+                  <Label fx:id="nominationsCountLabel" text="0" styleClass="stat-number"/>
+                     <Label text="Nominations" styleClass="stat-label"/>
+               </VBox>
+               
+               <VBox fx:id="committeesCard" styleClass="stat-card-neon" style="-fx-pref-width: 220;" alignment="CENTER">
+                  <Label fx:id="committeesCountLabel" text="0" styleClass="stat-number"/>
+                     <Label text="Committees" styleClass="stat-label"/>
                </VBox>
             </HBox>
             
-            <!-- Recent Warnings -->
-            <VBox fx:id="warningsCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
+            <!-- Active Legislation -->
+            <VBox fx:id="legislationCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
                <HBox alignment="CENTER_LEFT">
-                  <Label text="⚡ Risk Alerts" styleClass="label-neon-title"/>
+                  <Label text="📜 Active Legislation" styleClass="label-neon-title"/>
                   <Region HBox.hgrow="ALWAYS"/>
-                  <Button text="View All →" styleClass="neon-button-secondary" style="-fx-font-size: 12px;" onAction="#viewAllWarnings"/>
                </HBox>
-               <ListView fx:id="warningsListView" prefHeight="200" styleClass="list-view-dark"/>
+               <ListView fx:id="legislationListView" prefHeight="250" styleClass="list-view-dark"/>
             </VBox>
             
-            <!-- Top Countries -->
-            <VBox fx:id="countriesCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
+            <!-- Recent Hearings -->
+            <VBox fx:id="hearingsCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
                <HBox alignment="CENTER_LEFT">
-                  <Label text="📈 Market Overview" styleClass="label-neon-title"/>
+                  <Label text="🎤 Committee Hearings" styleClass="label-neon-title"/>
                   <Region HBox.hgrow="ALWAYS"/>
-                  <Button text="View All →" styleClass="neon-button-secondary" style="-fx-font-size: 12px;" onAction="#navigateToCountries"/>
                </HBox>
-               <ListView fx:id="countriesListView" prefHeight="300" styleClass="list-view-dark"/>
+               <ListView fx:id="hearingsListView" prefHeight="250" styleClass="list-view-dark"/>
             </VBox>
             
-            <!-- Latest News -->
-            <VBox fx:id="newsCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
+            <!-- Recent Nominations -->
+            <VBox fx:id="nominationsCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
                <HBox alignment="CENTER_LEFT">
-                  <Label text="� Market News" styleClass="label-neon-title"/>
+                  <Label text="👤 Recent Nominations" styleClass="label-neon-title"/>
                   <Region HBox.hgrow="ALWAYS"/>
-                  <Button text="View All →" styleClass="neon-button-secondary" style="-fx-font-size: 12px;" onAction="#navigateToNews"/>
                </HBox>
-               <ListView fx:id="newsListView" prefHeight="300" styleClass="list-view-dark"/>
+               <ListView fx:id="nominationsListView" prefHeight="250" styleClass="list-view-dark"/>
+            </VBox>
+            
+            <!-- Committees -->
+            <VBox fx:id="committeesCardSection" spacing="20" styleClass="glass-card" style="-fx-padding: 30;">
+               <HBox alignment="CENTER_LEFT">
+                  <Label text="🏛️ Committees" styleClass="label-neon-title"/>
+                  <Region HBox.hgrow="ALWAYS"/>
+               </HBox>
+               <ListView fx:id="committeesListView" prefHeight="250" styleClass="list-view-dark"/>
             </VBox>
          </VBox>
       </ScrollPane>

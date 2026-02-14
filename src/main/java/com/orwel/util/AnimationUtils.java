@@ -144,21 +144,15 @@ public class AnimationUtils {
     /**
      * Adds a subtle float animation (up and down)
      * @param node The node to animate
-     * @return The animation timeline
+     * @return The animation transition
      */
-    public static Timeline createFloatAnimation(Node node) {
+    public static TranslateTransition createFloatAnimation(Node node) {
         TranslateTransition floatTransition = new TranslateTransition(Duration.millis(3000), node);
         floatTransition.setFromY(0);
         floatTransition.setToY(-10);
         floatTransition.setAutoReverse(true);
-        floatTransition.setCycleCount(Timeline.INDEFINITE);
+        floatTransition.setCycleCount(TranslateTransition.INDEFINITE);
         
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(
-            new KeyFrame(Duration.millis(3000), e -> floatTransition.play())
-        );
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        
-        return timeline;
+        return floatTransition;
     }
 }

@@ -50,11 +50,18 @@
             <version>2.10.1</version>
         </dependency>
 
-        <!-- Location API (for geocoding) -->
+        <!-- SQLite Database -->
         <dependency>
-            <groupId>com.google.maps</groupId>
-            <artifactId>google-maps-services</artifactId>
-            <version>2.2.0</version>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.45.1.0</version>
+        </dependency>
+
+        <!-- Environment Variables -->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
         </dependency>
 
         <!-- Testing -->

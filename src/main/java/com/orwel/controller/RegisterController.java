@@ -13,7 +13,6 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -161,35 +160,8 @@ public class RegisterController {
         user.setUsername(usernameField.getText().trim());
         user.setEmail(emailField.getText().trim());
         user.setPassword(passwordField.getText()); // Backend should hash this
-        user.setAddress(addressField.getText().trim());
-        user.setCity(cityField.getText().trim());
-        user.setPostalCode(postalCodeField.getText().trim());
-        user.setCountry(countryComboBox.getValue());
-        user.setPhoneNumber(phoneNumberField.getText().trim());
-        user.setOccupation(occupationField.getText().trim());
-        user.setDateOfBirth(dateOfBirthPicker.getValue());
-        
-        if (marriageStatusComboBox.getValue() != null) {
-            user.setMarriageStatus(User.MarriageStatus.valueOf(marriageStatusComboBox.getValue()));
-        }
-        
-        user.setHasStocks(hasStocksCheckbox.isSelected());
-        user.setPlansToTravel(plansToTravelCheckbox.isSelected());
-        
-        // Collect interests
-        List<String> interests = new ArrayList<>();
-        if (interestPolitics.isSelected()) interests.add("politics");
-        if (interestTax.isSelected()) interests.add("tax");
-        if (interestTravel.isSelected()) interests.add("travel");
-        if (interestStocks.isSelected()) interests.add("stocks");
-        if (interestImmigration.isSelected()) interests.add("immigration");
-        if (interestTrade.isSelected()) interests.add("trade");
-        user.setInterests(interests.toArray(new String[0]));
-        
-        // Set location info if geocoded
-        if (locationInfo != null) {
-            user.setLocationInfo(locationInfo);
-        }
+        user.setOccupation(occupationField != null ? occupationField.getText().trim() : "");
+        user.setHasStocks(hasStocksCheckbox != null && hasStocksCheckbox.isSelected());
         
         // Register user
         new Thread(() -> {

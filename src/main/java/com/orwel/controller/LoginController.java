@@ -1,11 +1,14 @@
 package com.orwel.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import com.orwel.config.AppConfig;
 import com.orwel.model.AuthResponse;
 import com.orwel.model.LoginRequest;
+import com.orwel.model.User;
 import com.orwel.service.ApiService;
+import com.orwel.service.UserDatabase;
 import com.orwel.util.AnimationUtils;
 import com.orwel.util.NavigationHelper;
 
@@ -149,11 +152,11 @@ public class LoginController {
     
     @FXML
     private void handleLogin() {
-        String username = usernameField.getText().trim();
+        String usernameOrEmail = usernameField.getText().trim();
         String password = passwordField.getText();
         
-        if (username.isEmpty() || password.isEmpty()) {
-            showLoginError("Please enter both username and password");
+        if (usernameOrEmail.isEmpty() || password.isEmpty()) {
+            showLoginError("Please enter both username/email and password");
             return;
         }
         
@@ -163,16 +166,12 @@ public class LoginController {
         // Run login in background thread
         new Thread(() -> {
             try {
-                LoginRequest loginRequest = new LoginRequest(username, password);
+                // Try backend login first
+                LoginRequest loginRequest = new LoginRequest(usernameOrEmail, password);
                 AuthResponse response = apiService.login(loginRequest);
                 
                 Platform.runLater(() -> {
                     if (response.isSuccess() && response.getToken() != null) {
-                        // Save user session if remember me is checked
-                        if (rememberMeCheckbox.isSelected()) {
-                            // TODO: Implement session persistence
-                        }
-                        
                         // Navigate to dashboard
                         navigateToDashboard();
                     } else {
@@ -181,21 +180,70 @@ public class LoginController {
                     }
                 });
             } catch (IOException e) {
-                Platform.runLater(() -> {
-                    // If backend is not available, show demo mode hint
-                    if (e.getMessage().contains("Connection") || e.getMessage().contains("refused")) {
-                        showLoginError("Backend not available. Demo mode enabled - Enter any username to continue.");
-                        loginButton.setDisable(false);
+                // Run in separate thread to avoid blocking
+                new Thread(() -> {
+                    // If backend is not available, try SQLite authentication
+                    System.out.println("Backend unavailable, trying local authentication...");
+                    System.out.println("Looking for user: " + usernameOrEmail);
+                    
+                    try {
+                        User localUser = null;
                         
-                        // Allow login with any credentials when backend is down
-                        if (!username.isEmpty()) {
-                            navigateToDashboard();
+                        // Try to find user by email or username
+                        if (usernameOrEmail.contains("@")) {
+                            localUser = UserDatabase.getUserByEmail(usernameOrEmail);
+                            System.out.println("Searched by email, found: " + (localUser != null));
+                        } else {
+                            localUser = UserDatabase.getUserByUsername(usernameOrEmail);
+                            System.out.println("Searched by username, found: " + (localUser != null));
                         }
-                    } else {
-                        showLoginError("Connection error: " + e.getMessage());
-                        loginButton.setDisable(false);
+                        
+                        if (localUser != null) {
+                            System.out.println("User found. Checking password...");
+                            System.out.println("Stored password: " + localUser.getPassword());
+                            System.out.println("Entered password: " + password);
+                            
+                            if (localUser.getPassword().equals(password)) {
+                                // Successful local authentication
+                                System.out.println("Password match! Logging in...");
+                                apiService.setCurrentUser(localUser);
+                                
+                                Platform.runLater(() -> {
+                                    showLoginError("✓ Offline login successful!");
+                                    errorLabel.setStyle("-fx-text-fill: #00FF00;"); // Green
+                                    
+                                    // Navigate after delay
+                                    new Thread(() -> {
+                                        try {
+                                            Thread.sleep(1000);
+                                            Platform.runLater(() -> navigateToDashboard());
+                                        } catch (InterruptedException ie) {
+                                            Thread.currentThread().interrupt();
+                                        }
+                                    }).start();
+                                });
+                            } else {
+                                System.out.println("Password mismatch!");
+                                Platform.runLater(() -> {
+                                    showLoginError("Incorrect password");
+                                    loginButton.setDisable(false);
+                                });
+                            }
+                        } else {
+                            System.out.println("User not found in database");
+                            Platform.runLater(() -> {
+                                showLoginError("User not found. Please sign up first.");
+                                loginButton.setDisable(false);
+                            });
+                        }
+                    } catch (SQLException sqlEx) {
+                        sqlEx.printStackTrace();
+                        Platform.runLater(() -> {
+                            showLoginError("Database error: " + sqlEx.getMessage());
+                            loginButton.setDisable(false);
+                        });
                     }
-                });
+                }).start();
             }
         }).start();
     }
@@ -233,19 +281,81 @@ public class LoginController {
         signupButton.setDisable(true);
         signupErrorLabel.setVisible(false);
         
-        // For now, just show a message and allow proceeding to dashboard in demo mode
-        showSignupError("Account creation via backend not yet implemented. Using demo mode.");
-        signupButton.setDisable(false);
-        
-        // In demo mode, navigate to dashboard after showing message
-        Platform.runLater(() -> {
+        // Run signup in background thread
+        new Thread(() -> {
             try {
-                Thread.sleep(1000);
-                navigateToDashboard();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+                // Check if user already exists in SQLite
+                if (UserDatabase.userExists(email)) {
+                    Platform.runLater(() -> {
+                        showSignupError("User with this email already exists locally");
+                        signupButton.setDisable(false);
+                    });
+                    return;
+                }
+                
+                // Create new user
+                User newUser = new User();
+                newUser.setFirstName(firstName);
+                newUser.setLastName(lastName);
+                newUser.setEmail(email);
+                newUser.setUsername(username);
+                newUser.setPassword(password);
+                newUser.setHasStocks(false);
+                
+                // Try to register with backend
+                try {
+                    AuthResponse response = apiService.register(newUser);
+                    
+                    Platform.runLater(() -> {
+                        if (response.isSuccess()) {
+                            showSignupError("✓ Registration successful! Switching to login...");
+                            signupErrorLabel.setStyle("-fx-text-fill: #00FF00;"); // Green for success
+                            new Thread(() -> {
+                                try {
+                                    Thread.sleep(1500);
+                                    Platform.runLater(() -> {
+                                        signupErrorLabel.setStyle("-fx-text-fill: #FF0000;"); // Reset to red
+                                        handleLoginTab();
+                                    });
+                                } catch (InterruptedException e) {
+                                    Thread.currentThread().interrupt();
+                                }
+                            }).start();
+                        } else {
+                            showSignupError(response.getMessage() != null ? response.getMessage() : "Registration failed");
+                            signupButton.setDisable(false);
+                        }
+                    });
+                } catch (IOException e) {
+                    // Backend unavailable, save to SQLite only
+                    System.out.println("Backend unavailable, saving user locally...");
+                    
+                    UserDatabase.saveUser(newUser);
+                    apiService.setCurrentUser(newUser);
+                    
+                    Platform.runLater(() -> {
+                        showSignupError("✓ Account saved locally! Switching to login...");
+                        signupErrorLabel.setStyle("-fx-text-fill: #00FF00;"); // Green for success
+                        new Thread(() -> {
+                            try {
+                                Thread.sleep(1500);
+                                Platform.runLater(() -> {
+                                    signupErrorLabel.setStyle("-fx-text-fill: #FF0000;"); // Reset to red
+                                    handleLoginTab();
+                                });
+                            } catch (InterruptedException ie) {
+                                Thread.currentThread().interrupt();
+                            }
+                        }).start();
+                    });
+                }
+            } catch (SQLException sqlEx) {
+                Platform.runLater(() -> {
+                    showSignupError("Database error: " + sqlEx.getMessage());
+                    signupButton.setDisable(false);
+                });
             }
-        });
+        }).start();
     }
     
     @FXML
