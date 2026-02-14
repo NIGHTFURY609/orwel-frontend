@@ -101,22 +101,7 @@ The backend team needs to implement the following endpoints:
 5. **Read Market News**: Browse curated or market-wide news, filtered by sector or company
 6. **Update Profile**: Keep your investor profile updated for better personalized insights
 
-## Location API Configuration
-
-### Google Maps API (Recommended)
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing
-3. Enable "Geocoding API"
-4. Create credentials (API Key)
-5. Add the API key to `config.properties`
-
-### OpenStreetMap Nominatim (Free Alternative)
-
-- No API key required
-- Set `location.api.provider=openstreetmap` in `config.properties`
-- Note: Has rate limiting (1 request per second recommended)
-
+   
 ## Development
 
 ### Running Tests
