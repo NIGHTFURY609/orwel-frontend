@@ -144,14 +144,4 @@ This is a hackathon project. For contributions:
 3. Update documentation as needed
 4. Test your changes thoroughly
 
-## License
 
-See LICENSE file for details.
-
-## Team
-
-Built for MIT Hackathon 2026.
-
-## Support
-
-For issues or questions, contact the development team.
